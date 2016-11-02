@@ -1,0 +1,35 @@
+\begin{filecontents}{test.bib}
+@BOOK{hh2000,
+  AUTHOR    = {Henry Hectic},
+  TITLE     = {How Horticulturalists Howl},
+  PUBLISHER = {Honorary Books: Henage},
+  YEAR      = {2000}
+}
+\end{filecontents}
+
+\documentclass[]{article} % lsttotoc, toctotoc
+\usepackage{selinput}
+\SelectInputMappings{ adieresis={ä}, germandbls={ß} }
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{csquotes}
+
+\usepackage[backend=biber,style=alphabetic,citestyle=authortitle]{biblatex}
+\addbibresource{test.bib}
+
+% DOCUMENT
+\begin{document}
+
+\tableofcontents
+
+\section{This is a test}
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing \autocite{hh2000} elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+German Umlauts: Äa, Üü, Öö, ß
+
+$$f(x)=x^2 + x + 1$$
+
+\printbibliography[heading=bibintoc]
+
+\end{document}

@@ -1,0 +1,4 @@
+test/*.*
+!test/test.md
+!test/test.tex
+*.pdf
