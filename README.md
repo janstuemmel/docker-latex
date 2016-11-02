@@ -1,5 +1,7 @@
 # Docker Latex Image
 
+[![Build Status](https://travis-ci.org/janstuemmel/docker-latex.svg?branch=master)](https://travis-ci.org/janstuemmel/docker-latex)
+
 ## Packages
 
 a docker image based on **ubuntu 14.04** containing:

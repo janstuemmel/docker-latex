@@ -5,7 +5,16 @@ services:
 
 before_install:
   - docker build -t test .
-  - chmod +x run.sh
 
 script:
-  - ./test.sh
+  # describe: tools exist
+  - docker run --rm -v $PWD:/data test /bin/bash -c "which wget wput curl zip tar rsync make"
+  # describe: should render latex
+  # * biblatex biber
+  # * math
+  # * utf8 chars
+  - docker run --rm -v $PWD:/data test /bin/bash -c "cd test && pdflatex test && biber test && pdflatex test && pdflatex test"
+  # describe: should render markdown to pdf
+  # * math
+  # * utf8 chars
+  - docker run --rm -v $PWD:/data test /bin/bash -c "pandoc --toc test/test.md -o test.pdf"
